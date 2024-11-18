@@ -43,13 +43,13 @@ function rndCoeff() {
 async function testSeeds() {
   let scores = []
   for (let seed = 0; seed < 10; seed++) {
-    await sleep(3000)
     text('gameno', `${seed + 1}/10`)
     Random.seed = seed
     game.play()
     await game.fastForward()
     scores.push(game.score)
     text('avgScore', scores.reduce((a, b) => a + b) / scores.length)
+    await sleep(3000)
   }
 }
 
